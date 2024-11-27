@@ -1,23 +1,28 @@
-function saldoDeVitoria(victoryBalance){
-    let vitoria = {
-        Ferro: victoryBalance < 10,
-        Bronze: victoryBalance >= 11 && victoryBalance <= 20,
-        Ouro: victoryBalance >= 21 && victoryBalance <= 50,
-        Prata: victoryBalance >= 51 && victoryBalance <= 80,
-        Diamante: victoryBalance >= 81 && victoryBalance <= 90,
-        Lendário: victoryBalance >= 91 && victoryBalance <= 100,
-        Imortal: victoryBalance >= 101,       
-    };
-    for (let nivel in vitoria){
-        if (vitoria[nivel]) {
-            return nivel;
-        }
-    }
+let vitoria;
+let rank;
 
-    return "Nível não especificado";
+function calculoDoRank(saldoDeVitorias){
+    vitoria = saldoDeVitorias;
+    if (saldoDeVitorias < 10) {
+        rank = "Ferro";
+    } else if (saldoDeVitorias >= 11 && saldoDeVitorias <= 20) {
+        rank = "Bronze";
+    } else if (saldoDeVitorias >= 21 && saldoDeVitorias <= 50) {
+        rank = "Prata";
+    } else if (saldoDeVitorias >= 51 && saldoDeVitorias <= 80) {
+        rank = "Ouro";
+    } else if (saldoDeVitorias >= 81 && saldoDeVitorias <= 90) {
+        rank = "Diamante";
+    } else if (saldoDeVitorias >= 91 && saldoDeVitorias <= 100) {
+        rank = "Lendário";
+    } else if (saldoDeVitorias >= 101) {
+        rank = "Imortal";
+    }
 }
 
-const saldoVitoria = 85;
-let nivel = saldoDeVitoria(saldoVitoria)
+function comparadorDePartidas(vitoria){
+    calculoDoRank(vitoria)    
+ }
+ comparadorDePartidas(78)
 
-console.log(" O Herói tem de saldo de " + saldoVitoria + " vitórias e está no nivel de " + nivel + ".")
+console.log(" O Herói tem de saldo de " + vitoria + " vitórias e está no nivel de " + rank + ".")
